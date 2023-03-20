@@ -6,12 +6,12 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
+  @Get('/games')
   getAllGames() {
     return this.appService.getAllGames();
   }
 
-  @Get('/:id')
+  @Get('/games/:id')
   getGame(@Param('id') id: string) {
     return this.appService.getGame(id);
   }

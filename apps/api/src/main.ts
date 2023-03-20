@@ -5,11 +5,24 @@
 
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import morgan from 'morgan';
 
 import { AppModule } from './app/app.module';
 
+export function useRequestLogging(app) {
+  const logger = new Logger('Request');
+  app.use(
+    morgan('tiny', {
+      stream: {
+        write: (message) => logger.log(message.replace('\n', '')),
+      },
+    })
+  );
+}
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  useRequestLogging(app);
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
   const port = process.env.PORT || 3333;

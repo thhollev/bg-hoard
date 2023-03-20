@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { getAllGames } from '../fake-api';
+import { HttpClient } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
 import { formatRating } from '@bg-hoard/store/util-formatters';
 
 @Component({
@@ -9,6 +9,6 @@ import { formatRating } from '@bg-hoard/store/util-formatters';
 })
 export class AppComponent {
   title = 'Board Game Hoard';
-  games = getAllGames();
+  games = inject(HttpClient).get<any[]>('/api/games');
   formatRating = formatRating;
 }
