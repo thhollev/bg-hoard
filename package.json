@@ -25,7 +25,7 @@
     "@nrwl/cypress": "15.8.7",
     "@nrwl/eslint-plugin-nx": "15.8.7",
     "@nrwl/jest": "15.8.7",
-    "@nrwl/js": "15.8.7",
+    "@nrwl/js": "^15.8.7",
     "@nrwl/linter": "15.8.7",
     "@nrwl/nx-workshop": "0.4.10",
     "@nrwl/workspace": "14.8.8",
@@ -61,4 +61,3 @@
     "zone.js": "~0.12.0"
   }
 }
-
