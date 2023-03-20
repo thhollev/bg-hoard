@@ -27,6 +27,7 @@
     "@nrwl/jest": "15.8.7",
     "@nrwl/js": "15.8.7",
     "@nrwl/linter": "15.8.7",
+    "@nrwl/nx-workshop": "^0.0.1",
     "@nrwl/workspace": "14.8.8",
     "@schematics/angular": "~15.2.0",
     "@types/jest": "^29.4.0",
