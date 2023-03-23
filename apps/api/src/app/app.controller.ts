@@ -2,16 +2,16 @@ import { Controller, Get, Param } from '@nestjs/common';
 
 import { AppService } from './app.service';
 
-@Controller()
+@Controller('/games')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('/games')
+  @Get()
   getAllGames() {
     return this.appService.getAllGames();
   }
 
-  @Get('/games/:id')
+  @Get(':id')
   getGame(@Param('id') id: string) {
     return this.appService.getGame(id);
   }
