@@ -12,4 +12,7 @@ export class AppComponent {
   title = 'Board Game Hoard';
   games = inject(HttpClient).get<Game[]>('/api/games');
   formatRating = formatRating;
+  constructor() {
+    console.log('component constructed');
+  }
 }
