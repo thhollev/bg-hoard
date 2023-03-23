@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@bg-hoard/api/util-notifications": [
+        "libs/api/util-notifications/src/index.ts"
+      ],
       "@bg-hoard/internal-plugin": ["libs/internal-plugin/src/index.ts"],
       "@bg-hoard/shared/util-dates": ["libs/shared/util-dates/src/index.ts"],
       "@bg-hoard/store/feature-game-detail": [
