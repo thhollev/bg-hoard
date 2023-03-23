@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { formatRating } from '@bg-hoard/store/util-formatters';
 import { Game } from '@bg-hoard/util-interface';
 
@@ -10,9 +10,9 @@ import { Game } from '@bg-hoard/util-interface';
 })
 export class AppComponent {
   title = 'Board Game Hoard';
-  games = inject(HttpClient).get<Game[]>('/api/games');
+  games = inject(HttpClient).get<Game[]>(`${this.baseUrl}/api/games`);
   formatRating = formatRating;
-  constructor() {
+  constructor(@Inject('baseUrl') private baseUrl: string) {
     console.log('component constructed');
   }
 }

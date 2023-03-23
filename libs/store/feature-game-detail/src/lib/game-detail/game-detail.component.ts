@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { formatRating } from '@bg-hoard/store/util-formatters';
 import { Game } from '@bg-hoard/util-interface';
@@ -15,8 +15,12 @@ export class GameDetailComponent {
 
   game$ = inject(ActivatedRoute).paramMap.pipe(
     map((params: ParamMap) => params.get('id')),
-    switchMap((id) => this.httpClient.get<Game>(`/api/games/${id}`))
+    switchMap((id) =>
+      this.httpClient.get<Game>(`${this.baseUrl}/api/games/${id}`)
+    )
   );
 
   formatRating = formatRating;
+
+  constructor(@Inject('baseUrl') private baseUrl: string) {}
 }

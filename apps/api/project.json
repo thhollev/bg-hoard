@@ -20,7 +20,18 @@
       },
       "configurations": {
         "development": {},
-        "production": {}
+        "production": {
+          "externalDependencies": [
+            "@nestjs/microservices",
+            "@nestjs/microservices/microservices-module",
+            "@nestjs/websockets/socket-module",
+            "class-transformer",
+            "class-validator",
+            "cache-manager",
+            "cache-manager/package.json"
+          ],
+          "assets": ["apps/api/src/assets", "apps/api/src/fly.toml"]
+        }
       }
     },
     "serve": {
@@ -58,6 +69,17 @@
           "codeCoverage": true
         }
       }
+    },
+    "deploy": {
+      "executor": "@bg-hoard/internal-plugin:fly-deploy",
+      "outputs": [],
+      "options": {
+        "distLocation": "dist/apps/api/",
+        "flyAppName": "hollevoet-store-api"
+      },
+      "dependsOn": [
+        { "target": "build", "projects": "self", "params": "forward" }
+      ]
     }
   },
   "tags": ["scope:api", "type:app"]

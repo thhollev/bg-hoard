@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,7 @@ import { appRoutes } from './app.routes';
     MatCardModule,
     HeaderComponent,
   ],
-  providers: [],
+  providers: [{ provide: 'baseUrl', useValue: environment.apiUrl }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
