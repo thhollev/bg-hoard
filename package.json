@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "prepare": "husky install",
-    "pre-commit": "nx g @bg-hoard/internal-plugin:update-scope-schema"
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {

@@ -35,6 +35,10 @@
             "label": "store"
           },
           {
+            "value": "internal",
+            "label": "internal"
+          },
+          {
             "value": "shared",
             "label": "shared"
           }

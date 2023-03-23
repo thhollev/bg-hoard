@@ -64,8 +64,8 @@ const updateSchemaInterface = (tree: Tree, scopes: string[]) => {
 
 export default async function (tree: Tree) {
   const scopes = getScopes(getProjects(tree));
+  addScopeIfMissing(tree);
   updateSchemaJson(tree, scopes);
   updateSchemaInterface(tree, scopes);
-  addScopeIfMissing(tree);
   await formatFiles(tree);
 }
