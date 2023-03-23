@@ -68,5 +68,8 @@
     "@nrwl/angular:component": {
       "style": "less"
     }
+  },
+  "implicitDependencies": {
+    ".github/workflows/ci.yml": "*"
   }
 }
